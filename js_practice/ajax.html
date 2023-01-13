@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" 
+    integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" 
+    crossorigin="anonymous"></script>
+    <script>
+        // document.getElementById("btn").addEventListener('click',loadText);
+        function loadText(){
+            var xhr= new XMLHttpRequest();
+        xhr.open('GET','sample.txt',true);
+            console.log(xhr.readyState);
+        xhr.onload=function(){
+            console.log(xhr.readyState);
+            if(this.status==200){
+                console.log(this.responseText);
+                document.getElementById("mydiv").innerHTML=this.responseText;
+                document.getElementById("mydiv").style.backgroundColor="pink";
+            }
+            elseif(this.status==404)
+                document.getElementById("mydiv").innerHTML="Not Found 404 Error";
+            
+        }
+        // xhr.onreadystatechange=function(){
+            //console.log(xhr.readyState);
+        //     if(this.readyState==4 && this.status==400){
+        //         console.log(this.responseText);
+        //     }
+        // }
+
+        
+        xhr.send();
+        }
+        
+
+    </script>
+
+</head>
+<body>
+    <button type="button" id="btn" name="btn" onclick="loadText()">Click me</button>
+    <div id="mydiv"></div>
+</body>
+</html>

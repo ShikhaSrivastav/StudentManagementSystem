@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = [];
+        function addnum() {
+            alert("check 1")
+            var nm = document.getElementById("name").value;
+            var addr = document.getElementById("add").value;
+            var hobby = document.getElementById("hob").value;
+            let ob = {
+                name: nm,
+                address: addr,
+                hobbies: hobby
+            }
+            arr.push(ob);
+        }
+        function display() {
+            let output = "";
+            for (let i = 0; i < arr.length; i++) {
+                output += "Name: " + arr[i].name + "<br>";
+                output += "Address: " + arr[i].address + "<br>";
+                output += "Hobbies: " + arr[i].hobbies + "<br><br>";
+            }
+            document.getElementById("list").innerHTML = output;
+            document.getElementById("main").style.backgroundColor = "red";
+        }
+        function yellow() {
+            document.getElementById("name").style.backgroundColor = "yellow";
+
+        }
+        function white() {
+            document.getElementById("name").style.backgroundColor = "white";
+        }
+    </script>
+</head>
+
+<body>
+    <div id="main">
+        <form>
+            Name : <input type="text" name="name" id="name" onfocus="yellow()" onblur="white()">
+            Address: <input type="text" name="add" id="add">
+            Hobbies: <input type="text" name="hob" id="hob">
+            <button type="button" id="btn" name="btn" onclick="addnum()">Add Object</button>
+            <button type="button" id="btn1" name="btn1" onclick="display()">Display Object</button>
+        </form>
+        <div id="list"></div>
+    </div>
+</body>
+</html>

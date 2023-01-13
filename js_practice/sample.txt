@@ -1,0 +1,8 @@
+The functionality of jquery.min.js and jquery.js is the same. However, If you are serving a page that contains a lot of JavaScript, it is a good idea to minify it. Minifying JavaScript (jquery.min.js) reduces the size of your file and makes it faster to load on all platforms. Minifying your code also reduces the chances that erroneous code will be rendered as a malicious attack because it makes it more difficult to test. With minified JavaScript, you will get better page performance, faster loading, and shorter wait times for your visitors.
+
+There are also some of the major advantages of the jquery.min.js. - 
+
+When JS files are minified in a production environment, they load faster and provide faster and better page performance.
+Minifying a script also reduces the size of the file in the server’s temporary directory and browser cache, which results in a faster download and a smaller server response.
+Another advantage of using minified JS is that it removes the need to include any external JS files in the HTML document. This makes it easier to structure the code and easier to edit the code.
+35. Explain the benefits of using a CDN for the j

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script>
+        function loadUser() {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'user.json', true);
+            xhr.onload = function () {
+                if (this.status == 200) {
+
+                    var user = JSON.parse(this.responseText);
+                    // document.getElementById("user").innerHTML=user;
+                    var output = "";
+                    output += '<ul>' +
+                        '<li>ID:' +user[0].id+ '</li>' +
+                        '<li>name:' +user[0].name+ '</li>' +
+                        '<li>email:' +user[0].email+ '</li> ' + '</ul>';
+                    document.getElementById("user").innerHTML = output;
+
+
+                }
+            }
+            xhr.send();
+        }
+        function loadUsers() {
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'users.json', true);
+            xhr.onload = function () {
+                if (this.status == 200) {
+
+                    var users = JSON.parse(this.responseText);
+                    // document.getElementById("user").innerHTML=user;
+                    var output = "";
+                    for (var i in users) {
+                        output += '<ul>' +
+                            '<li>ID:' + users[i].id + '</li>' +
+                            '<li>name:' + users[i].name + '</li>' +
+
+                            '<li>email:' + users[i].email + '</li> ' + '</ul>';
+
+                    }
+
+                    document.getElementById("users").innerHTML = output;
+
+
+                }
+            }
+            xhr.send();
+        }
+    </script>
+</head>
+
+<body>
+    <button type="button" id="btn" name="btn" onclick="loadUser()">Get User</button>
+    <button type="button" id="btn1" name="btn1" onclick="loadUsers()">Get Users</button>
+    <br><br>
+    <h3>User</h3>
+    <div id="user"></div>
+    <h3>Users</h3>
+    <div id="users"></div>
+</body>
+
+</html>
